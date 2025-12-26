@@ -12,9 +12,9 @@ import SwiftUI
 public extension DSColor {
 
     enum Icon {
-        public static let primary = Color("color.icon.primary", bundle: .main)
-        public static let secondary = Color("color.icon.secondary", bundle: .main)
-        public static let disabled = Color("color.icon.disabled", bundle: .main)
-        public static let inverse = Color("color.icon.inverse", bundle: .main)
+        public static let primary = Color("color.icon.primary", bundle: .module)
+        public static let secondary = Color("color.icon.secondary", bundle: .module)
+        public static let disabled = Color("color.icon.disabled", bundle: .module)
+        public static let inverse = Color("color.icon.inverse", bundle: .module)
     }
 }

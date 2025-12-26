@@ -11,9 +11,9 @@ import SwiftUI
 public extension DSColor {
 
     enum Border {
-        public static let subtle = Color("color.border.subtle", bundle: .main)
-        public static let defaultColor = Color("color.border.default", bundle: .main)
-        public static let strong = Color("color.border.strong", bundle: .main)
-        public static let focus = Color("color.border.focus", bundle: .main)
+        public static let subtle = Color("color.border.subtle", bundle: .module)
+        public static let defaultColor = Color("color.border.default", bundle: .module)
+        public static let strong = Color("color.border.strong", bundle: .module)
+        public static let focus = Color("color.border.focus", bundle: .module)
     }
 }
