@@ -1,0 +1,32 @@
+//
+//  DSColor+Fill.swift
+//  HandzDesignSystem
+//
+//  Created by Marco Henrique on 26/12/25.
+//
+
+import SwiftUI
+
+@available(macOS 10.15, *)
+public extension DSColor {
+
+    enum Fill {
+
+        // MARK: - Brand
+        public static let main = Color("color.fill.main", bundle: .main)
+        public static let secondary = Color("color.fill.secondary", bundle: .main)
+
+        // MARK: - Neutral
+        public static let neutralLowest = Color("color.fill.neutral.lowest", bundle: .main)
+        public static let neutralLow = Color("color.fill.neutral.low", bundle: .main)
+        public static let neutralHigh = Color("color.fill.neutral.high", bundle: .main)
+
+        // MARK: - State
+        public static let success = Color("color.fill.success", bundle: .main)
+        public static let warning = Color("color.fill.warning", bundle: .main)
+        public static let error = Color("color.fill.error", bundle: .main)
+
+        // MARK: - Disabled
+        public static let disabled = Color("color.fill.disabled", bundle: .main)
+    }
+}
