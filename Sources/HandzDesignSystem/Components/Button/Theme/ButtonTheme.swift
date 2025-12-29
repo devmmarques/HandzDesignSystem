@@ -9,11 +9,20 @@ import SwiftUI
 
 public protocol ButtonTheme {
 
+    // MARK: - Layout (Size)
+
+    func height(for size: DSButtonSize) -> CGFloat
+    func horizontalPadding(for size: DSButtonSize) -> DSSpacingToken
+    func radius(for size: DSButtonSize) -> DSRadiusToken
+    func font(for size: DSButtonSize) -> Font
+
+    // MARK: - Appearance (Variant + State)
+
     func backgroundColor(variant: DSButtonVariant, state: DSButtonState) -> Color
 
     func textColor(variant: DSButtonVariant, state: DSButtonState) -> Color
 
-    func height(for variant: DSButtonVariant) -> CGFloat
-    func radius(for variant: DSButtonVariant) -> DSRadiusToken
-    func borderColor(variant: DSButtonVariant, state: DSButtonState) -> Color
+    func borderColor(variant: DSButtonVariant) -> Color
+
+    func borderWidth(variant: DSButtonVariant) -> CGFloat
 }

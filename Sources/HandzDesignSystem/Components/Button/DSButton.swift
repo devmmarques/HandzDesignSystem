@@ -12,25 +12,30 @@ public struct DSButton: View {
     private let title: String
     private let variant: DSButtonVariant
     private let state: DSButtonState
+    private let size: DSButtonSize
     private let action: () -> Void
     private let accessibilityIdentifier: String?
     private let accessibilityHint: String?
 
-    private let theme: ButtonTheme = DefaultButtonTheme()
+    private let theme: ButtonTheme
 
     public init(
         _ title: String,
+        size: DSButtonSize = .medium,
         variant: DSButtonVariant = .primary,
         state: DSButtonState = .normal,
         accessibilityIdentifier: String? = nil,
         accessibilityHint: String? = nil,
+        theme: ButtonTheme = DefaultButtonTheme(),
         action: @escaping () -> Void
     ) {
         self.title = title
+        self.size = size
         self.variant = variant
         self.state = state
         self.accessibilityIdentifier = accessibilityIdentifier
         self.accessibilityHint = accessibilityHint
+        self.theme = theme
         self.action = action
     }
 
@@ -46,6 +51,7 @@ public struct DSButton: View {
             DSButtonStyle(
                 variant: variant,
                 state: state,
+                size: size,
                 theme: theme
             )
         )
@@ -65,14 +71,20 @@ public struct DSButton: View {
             if state == .loading {
                 ProgressView()
                     .progressViewStyle(.circular)
-                    .tint(DSColor.Text.primary)
+                    .tint(theme.textColor(variant: variant, state: state))
             } else {
                 Text(title)
                     .font(DSTypography.font(.bodyMedium))
-                    .tint(DSColor.Text.inverse)
+                    .tint(theme.textColor(variant: variant, state: state))
                     
             }
         }
+        .frame(maxWidth: .infinity,
+               minHeight: theme.height(for: size),
+               maxHeight: theme.height(for: size))
+        .padding(.horizontal, DSSpacing.value(
+            theme.horizontalPadding(for: size)
+        ))
         .foregroundColor(
             theme.textColor(variant: variant, state: state)
         )

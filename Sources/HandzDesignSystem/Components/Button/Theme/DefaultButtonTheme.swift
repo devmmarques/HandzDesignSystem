@@ -7,52 +7,82 @@
 
 import SwiftUI
 
-
 public struct DefaultButtonTheme: ButtonTheme {
+    
 
     public init() {}
+
+    // MARK: - Layout
+
+    public func height(for size: DSButtonSize) -> CGFloat {
+        switch size {
+        case .small: return 36
+        case .medium: return 48
+        case .large: return 56
+        }
+    }
+
+    public func horizontalPadding(for size: DSButtonSize) -> DSSpacingToken {
+        switch size {
+        case .small: return .sm
+        case .medium: return .md
+        case .large: return .lg
+        }
+    }
+
+    public func radius(for size: DSButtonSize) -> DSRadiusToken {
+        switch size {
+        case .small: return .sm
+        case .medium: return .md
+        case .large: return .lg
+        }
+    }
+
+    public func font(for size: DSButtonSize) -> Font {
+        switch size {
+        case .small: return DSTypography.font(.bodySmall)
+        case .medium: return DSTypography.font(.bodyMedium)
+        case .large: return DSTypography.font(.bodyLarge)
+        }
+    }
+
+    // MARK: - Appearance
 
     public func backgroundColor(variant: DSButtonVariant, state: DSButtonState) -> Color {
         switch (variant, state) {
         case (.primary, .normal):
             return DSColor.Fill.main
-        case (.primary, .disabled):
-            return DSColor.Fill.main.opacity(0.4)
-        case (.primary, .loading):
-            return DSColor.Fill.main
-
         case (.secondary, .normal):
-            return DSColor.Fill.secondary
-        case (.secondary, .disabled):
-            return DSColor.Fill.secondary.opacity(0.4)
+            return .clear
         case (.secondary, .loading):
-            return DSColor.Fill.secondary
+            return .clear
+        case (_, .disabled):
+            return DSColor.Fill.disabled
+        default:
+            return DSColor.Fill.main.opacity(0.8)
         }
     }
 
     public func textColor(variant: DSButtonVariant, state: DSButtonState) -> Color {
+        switch (variant, state) {
+        case (.primary, _):
+            return DSColor.Text.primary
+        case (.secondary, _):
+            return DSColor.Text.secondary
+        }
+    }
+
+    public func borderColor(variant: DSButtonVariant) -> Color {
         switch variant {
-        case .primary:
-            return DSColor.Text.primary
         case .secondary:
-            return DSColor.Text.primary
-        }
-    }
-
-    public func height(for variant: DSButtonVariant) -> CGFloat {
-        48
-    }
-
-    public func radius(for variant: DSButtonVariant) -> DSRadiusToken {
-        .pill
-    }
-    
-    public func borderColor(variant: DSButtonVariant, state: DSButtonState) -> Color {
-        switch state {
-        case .disabled:
-            return DSColor.Border.defaultColor
-        default:
             return DSColor.Fill.main
+        default:
+            return .clear
         }
+    }
+
+    public func borderWidth(variant: DSButtonVariant) -> CGFloat {
+        variant == .secondary ? 1 : 0
     }
 }
+
