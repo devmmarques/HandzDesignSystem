@@ -15,6 +15,7 @@ public extension DSColor {
         // MARK: - Brand
         public static let main = Color("color.fill.main", bundle: .module)
         public static let secondary = Color("color.fill.secondary", bundle: .module)
+        public static let transparent = Color("color.fill.transparent", bundle: .module)
 
         // MARK: - Neutral
         public static let neutralLowest = Color("color.fill.neutral.lowest", bundle: .module)
@@ -25,6 +26,8 @@ public extension DSColor {
         public static let success = Color("color.fill.success", bundle: .module)
         public static let warning = Color("color.fill.warning", bundle: .module)
         public static let error = Color("color.fill.error", bundle: .module)
+        
+        public static let surface = Color("color.fill.surface", bundle: .module)
 
         // MARK: - Disabled
         public static let disabled = Color("color.fill.disabled", bundle: .module)
