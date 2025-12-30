@@ -66,7 +66,7 @@ public struct DefaultButtonTheme: ButtonTheme {
     public func textColor(variant: DSButtonVariant, state: DSButtonState) -> Color {
         switch (variant, state) {
         case (.primary, _):
-            return DSColor.Text.primary
+            return DSColor.Text.onFill
         case (.secondary, _):
             return DSColor.Text.secondary
         }

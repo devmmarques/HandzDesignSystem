@@ -15,5 +15,9 @@ public extension DSColor {
         public static let defaultColor = Color("color.border.default", bundle: .module)
         public static let strong = Color("color.border.strong", bundle: .module)
         public static let focus = Color("color.border.focus", bundle: .module)
+        
+        public static let error = Color("color.border.error", bundle: .module)
+        public static let disabled = Color("color.border.disabled", bundle: .module)
+        public static let standard = Color("color.border.standard", bundle: .module)
     }
 }

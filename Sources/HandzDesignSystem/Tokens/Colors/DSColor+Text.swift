@@ -16,5 +16,9 @@ public extension DSColor {
         public static let disabled = Color("color.text.disabled", bundle: .module)
         public static let onFill = Color("color.text.onFill", bundle: .module)
         public static let inverse = Color("color.text.inverse", bundle: .module)
+        
+        public static let error = Color("color.text.error", bundle: .module)
+        public static let tertiary = Color("color.text.tertiary", bundle: .module)
+        
     }
 }
